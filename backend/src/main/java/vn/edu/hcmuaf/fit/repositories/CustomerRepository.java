@@ -8,5 +8,4 @@ import vn.edu.hcmuaf.fit.models.Customer;
 @Repository
 public interface CustomerRepository extends JpaRepository<Customer, Long> {
     Customer findByEmail(String email); // tìm kiếm và trả về đối tượng Customer theo địa chỉ email của khách hàng.
-    Customer findById(Long idCustomer) ; // tìm kiếm và trả về đối tượng Customer theo ID của khách hàng.
 }
