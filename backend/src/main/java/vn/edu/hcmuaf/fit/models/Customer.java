@@ -2,6 +2,8 @@ package vn.edu.hcmuaf.fit.models;
 
 import javax.persistence.*;
 
+/* Bảng Khách Hàng */
+
 @Entity
 @Table(name = "customers")
 public class Customer {
@@ -22,7 +24,7 @@ public class Customer {
     @Column(nullable = false)
     private String password;
 
-    @Column(name = "phone")
+    @Column(name = "phone_number")
     private String phone;
 
     @Column(name = "address")
