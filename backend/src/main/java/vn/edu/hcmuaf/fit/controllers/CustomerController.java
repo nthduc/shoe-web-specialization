@@ -17,7 +17,7 @@ public class CustomerController {
     private CustomerService customerService;
 
     // GET request to retrieve all customers
-    @GetMapping("/")
+    @GetMapping("")
     public ResponseEntity<List<Customer>> getAllCustomers() {
         List<Customer> customers = customerService.getAllCustomers();
         return new ResponseEntity<>(customers, HttpStatus.OK);
@@ -31,7 +31,7 @@ public class CustomerController {
     }
 
     // POST request to create a new customer
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
         Customer newCustomer = customerService.saveCustomer(customer);
         return new ResponseEntity<>(newCustomer, HttpStatus.CREATED);
