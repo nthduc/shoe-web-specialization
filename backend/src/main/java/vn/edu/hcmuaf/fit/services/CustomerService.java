@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import vn.edu.hcmuaf.fit.exception.ResourceNotFoundException;
 import vn.edu.hcmuaf.fit.models.Customer;
 import vn.edu.hcmuaf.fit.repositories.CustomerRepository;
@@ -16,6 +17,9 @@ public class CustomerService {
 
     // Lưu thông tin một khách hàng mới (thêm khách hàng) vào CSDL
     public Customer saveCustomer(Customer customer) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodedPassword = encoder.encode(customer.getPassword());
+        customer.setPassword(encodedPassword);
         return customerRepository.save(customer);
     }
 
