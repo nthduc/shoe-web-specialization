@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit;
+package vn.edu.hcmuaf.fit.shoebackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

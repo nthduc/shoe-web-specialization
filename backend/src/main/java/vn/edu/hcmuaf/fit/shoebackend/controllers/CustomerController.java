@@ -1,11 +1,11 @@
-package vn.edu.hcmuaf.fit.controllers;
+package vn.edu.hcmuaf.fit.shoebackend.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import vn.edu.hcmuaf.fit.models.Customer;
-import vn.edu.hcmuaf.fit.services.CustomerService;
+import vn.edu.hcmuaf.fit.shoebackend.models.Customer;
+import vn.edu.hcmuaf.fit.shoebackend.services.CustomerService;
 
 import java.util.List;
 

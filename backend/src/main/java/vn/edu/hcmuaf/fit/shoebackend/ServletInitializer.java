@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit;
+package vn.edu.hcmuaf.fit.shoebackend;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

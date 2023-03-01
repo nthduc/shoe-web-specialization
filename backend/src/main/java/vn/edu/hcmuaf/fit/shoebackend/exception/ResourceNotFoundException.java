@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.exception;
+package vn.edu.hcmuaf.fit.shoebackend.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

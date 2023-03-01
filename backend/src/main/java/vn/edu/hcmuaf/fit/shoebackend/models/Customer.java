@@ -1,4 +1,4 @@
-package vn.edu.hcmuaf.fit.models;
+package vn.edu.hcmuaf.fit.shoebackend.models;
 
 import jakarta.persistence.*;
 import lombok.*;

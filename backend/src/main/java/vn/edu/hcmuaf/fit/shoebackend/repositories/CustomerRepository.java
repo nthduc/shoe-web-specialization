@@ -1,8 +1,8 @@
-package vn.edu.hcmuaf.fit.repositories;
+package vn.edu.hcmuaf.fit.shoebackend.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import vn.edu.hcmuaf.fit.models.Customer;
+import vn.edu.hcmuaf.fit.shoebackend.models.Customer;
 /*Interface này kế thừa JpaRepository để thực hiện các thao tác CRUD trên đối tượng Customer. */
 
 @Repository
