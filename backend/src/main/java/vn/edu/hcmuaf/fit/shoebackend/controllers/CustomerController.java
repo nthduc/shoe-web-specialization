@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import vn.edu.hcmuaf.fit.shoebackend.dto.LoginRequest;
+import vn.edu.hcmuaf.fit.shoebackend.exception.ResourceNotFoundException;
 import vn.edu.hcmuaf.fit.shoebackend.models.Customer;
 import vn.edu.hcmuaf.fit.shoebackend.services.CustomerService;
 
@@ -49,5 +51,16 @@ public class CustomerController {
     public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
         customerService.deleteCustomerById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    // LOGIN
+    @PostMapping("/login")
+    public ResponseEntity<Customer> login(@RequestBody LoginRequest loginRequest) {
+        try {
+            Customer customer = customerService.login(loginRequest.getEmail(), loginRequest.getPassword());
+            return ResponseEntity.ok().body(customer);
+        } catch (ResourceNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+        }
     }
 }

@@ -54,4 +54,21 @@ public class CustomerService {
         return customerRepository.save(existingCustomer);
     }
 
+    // Kiểm tra thông tin đăng nhập của một khách hàng
+    public Customer login(String email, String password) {
+        Customer customer = customerRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("Customer not found with email: " + email));
+
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        boolean passwordMatches = encoder.matches(password, customer.getPassword());
+
+        if (passwordMatches) {
+            return customer;
+        } else {
+            throw new ResourceNotFoundException("Invalid email or password");
+        }
+    }
+
+
+
 }
