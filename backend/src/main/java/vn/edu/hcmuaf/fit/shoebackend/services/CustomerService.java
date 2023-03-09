@@ -15,10 +15,13 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoderConfigure;
+
     // Lưu thông tin một khách hàng mới (thêm khách hàng) vào CSDL
     public Customer saveCustomer(Customer customer) {
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String encodedPassword = encoder.encode(customer.getPassword());
+//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String encodedPassword = bCryptPasswordEncoderConfigure.encode(customer.getPassword());
         customer.setPassword(encodedPassword);
         return customerRepository.save(customer);
     }
@@ -59,8 +62,8 @@ public class CustomerService {
         Customer customer = customerRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("Customer not found with email: " + email));
 
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        boolean passwordMatches = encoder.matches(password, customer.getPassword());
+//        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        boolean passwordMatches = bCryptPasswordEncoderConfigure.matches(password, customer.getPassword());
 
         if (passwordMatches) {
             return customer;
